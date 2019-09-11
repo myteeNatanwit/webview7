@@ -252,6 +252,7 @@ extension ViewController: WKNavigationDelegate {
             case "ios_pop_message": sendNotification(txt: myrecord.param);
             case "exchange" : do_exchange(txt: myrecord.param);
             case "ios_geo": send_geolocation();
+            case "ios_localValidation": TouchID.authenticateUser();
             default : print("Not defined: \(myrecord.function)")
             }
         }

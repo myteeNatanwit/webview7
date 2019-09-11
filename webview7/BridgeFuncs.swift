@@ -31,7 +31,7 @@ var myrecord = (function:"", param:"");
     //look for the ? char
     let needle: Character = "?";
     //if it is not nul  -> found
-    if let idx = str.index(of: needle) {
+    if let idx = str.firstIndex(of: needle) {
  
         //take only whatever before the ?
         functionName = str.substring(to: idx);
