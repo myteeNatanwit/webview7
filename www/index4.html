@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Styling iOS WebKit buttons – demo page | Lab | 456 Berea Street</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style media="screen,print">
+                @import '/css/lab.css';
+                #body {
+                    width:70em;
+                    max-width:100%;
+                    margin:0 auto;
+                }
+            #buttons p {
+                margin-bottom:0.5em;
+            }
+            #buttons div {
+                margin-bottom:2em;
+            }
+            .button {
+                position:relative;
+                width:auto;
+                height:2em;
+                overflow:visible;
+                margin:0;
+                padding:4px 12px;
+                border:2px solid #fff;
+                -moz-border-radius:8px;
+                -webkit-border-radius:8px;
+                border-radius:8px;
+                -moz-box-shadow:0 0 3px rgba(0,0,0,0.5);
+                -webkit-box-shadow:0 0 3px rgba(0,0,0,0.5);
+                box-shadow:0 0 3px rgba(0,0,0,0.5);
+                color:#000;
+                background:#ddd;
+                font:bold 14px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align:center;
+                cursor:pointer;
+            }
+            .button-2 {
+                background:-webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ddd));
+                background:-webkit-linear-gradient(#ddd, #ddd);
+                background:linear-gradient(#ddd, #ddd);
+            }
+            .button-3 {
+                -webkit-appearance:none;
+            }
+            </style>
+    </head>
+    <body>
+        <div id="body">
+            <h1>Styling iOS WebKit buttons – demo page</h1>
+            <p>This is a demo document related to the article <a href="/archive/201111/styling_buttons_in_ios_webkit_and_-webkit-appearancenone/">Styling buttons in iOS WebKit and -webkit-appearance:none</a>. Please see the article for context and information.</p>
+            <div id="buttons">
+                <div>
+                    <p>The following is a completely unstyled button.</p>
+                    <input type="button" value="Unstyled button">
+                        </div>
+                <div>
+                    <p>The following button is styled. Many of the properties do not take effect in iOS WebKit browsers.</p>
+                    <input type="button" class="button button-1" value="Styled button">
+                        </div>
+                <div>
+                    <p>The following button has the same CSS as the previous one, but instead of a flat background colour it uses a linear gradient with the same start and end colours.</p>
+                    <input type="button" class="button button-2" value="Styled button with gradient">
+                        </div>
+                <div>
+                    <p>The following button has the same CSS as the second button, but also a <code>-webkit-appearance:none</code> declaration.</p>
+                    <input type="button" class="button button-3" value="-webkit-appearance:none">
+                        </div>
+            </div>
+            <p>If you do not have access to an iOS device or simulator, here is a screenshot of the buttons as they appear in Safari for iOS:</p>
+            <p><img src="ios-webkit-buttons.png" width="238" height="166" alt="Screenshot of various CSS applied to buttons in Safari for iOS." /></p>
+            <div id="labfooter">
+                <p><a href="/lab/">Lab Index</a> | <a href="/">456 Berea Street Home</a> | Copyright &#169; 2003-2019 Roger Johansson</p>
+            </div>
+        </div>
+    </body>
+</html>

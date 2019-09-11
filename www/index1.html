@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>simple bridge to Swift</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style media="screen,print">
+      * {
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+  .button {
+      position:relative;
+      width:auto;
+      height:2em;
+      overflow:visible;
+      margin:10px;
+      padding:4px 12px;
+      border:2px solid #fff;
+      -moz-border-radius:8px;
+      -webkit-border-radius:8px;
+      border-radius:8px;
+      -moz-box-shadow:0 0 3px rgba(0,0,0,0.5);
+      -webkit-box-shadow:0 0 3px rgba(0,0,0,0.5);
+      box-shadow:0 0 3px rgba(0,0,0,0.5);
+      color:#000;
+      background:#ddd;
+      font:bold 14px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-align:center;
+      cursor:pointer;
+  }
+  .button-3 {
+      -webkit-appearance:none;
+  }
+  </style>
+  </head>
+  <body>
+      <h1 id="exchange">Simple Bridge</h1>
+      
+      <button class="button button-3" onclick="call_ios_alert()"> call alert from IOS native </button>
+      <button class="button" onclick="call_js_alert()"> alert from JavaSript </button>
+      <button class="button" onclick="call_ios_popup()"> send link to IOS to popup</button>
+      <button class="button" onclick="ios_pop_message()">IOS Notification </button>
+      <button class="button" onclick="call_geo()">Get Geolocation from OS </button>
+      <button class="button" onclick="call_map()">Get map from OS </button>
+      <button class="button" onclick="call_localValidation()">Get FingerPrint from OS </button>
+  </body>
+
+  <script type="text/javascript">
+
+function call_geo() {
+      myparam ="";
+      window.location = 'bridge:ios_geo';
+  }
+//call from IOS to use this function
+  function ios_to_js(txt){
+      document.getElementById("exchange").innerHTML = txt;
+      return "this is the data response from js";
+  }
+  function call_ios_alert() {
+      myparam ="message from JS + alert from IOS";
+      window.location = 'bridge:ios_alert?param=' + myparam;
+       }
+  
+  function call_js_alert() {
+      myparam ="alert from IOS - WKWebview no longer support Js alert";
+      window.location = 'bridge:ios_alert?param=' + myparam;
+     
+  }
+  
+  function call_ios_popup() {
+     // window.location = 'bridge:ios_popup?param=' + 'www/index2.html';
+     window.location = 'bridge:ios_popup?param=' + 'https://mobirise.com/extensions/personam4/';
+  }
+  
+  function ios_pop_message(text) {
+      myparam = "you won a Ferari! isnt it cool?";
+      window.location ='bridge:ios_pop_message?param=' + myparam;
+      var countdownElement = document.getElementById('exchange'),
+      seconds = 5,
+      second = 0,
+      interval;
+      interval = setInterval(function() {
+                             countdownElement.firstChild.data = 'IOS notification in ' + (seconds - second) + ' seconds';
+                             if (second >= seconds) {
+                             clearInterval(interval);
+                             //myparam = "you won a Ferari! isnt it cool?";
+                             //window.location ='bridge:ios_pop_message?param=' + myparam;
+                             }
+                             second++; }, 1000);
+  }
+  
+  </script>
+
+
+</html>
